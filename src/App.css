@@ -111,3 +111,22 @@ a:hover {
   background-color: green;
   font-size: 30px;
 }
+.formular-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px;
+}
+
+.formular {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  border: chartreuse dashed 5px;
+}
+.formular-h {
+  text-align: center;
+  line-height: 40px;
+  font-size: 25px;
+}
