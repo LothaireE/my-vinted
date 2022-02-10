@@ -1,0 +1,113 @@
+/* Other rules */
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 100px;
+  border: darkblue dashed 3px;
+}
+span {
+  line-height: 30px;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+}
+p {
+  line-height: 30px;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: dimgrey;
+  box-shadow: 0 0 10px;
+}
+/* .my-header {
+} */
+
+.header-top-bar {
+  margin: auto;
+  border: solid 3px black;
+  max-width: 1200px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-searchbar {
+  border: 2px solid black;
+  background-color: lightgrey;
+  border-radius: 5px;
+  width: 300px;
+  padding: 0px 10px;
+}
+/* .header-btn {
+  border: chartreuse dashed 3px;
+} */
+.header-btn button {
+  border-radius: 5px;
+  border: 2px solid #0affff;
+  margin: 10px;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  background-color: white;
+  color: #0affff;
+}
+.header-btn button:hover {
+  cursor: pointer;
+}
+.front-image {
+  max-height: 400px;
+  width: 100%;
+  object-fit: none;
+}
+.front-articles {
+  background-color: tomato;
+  margin: auto;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: row;
+}
+.article-parent {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.articles {
+  display: flex;
+  height: 400px;
+  width: 350px;
+  object-fit: cover;
+  border: chartreuse solid 3px;
+  justify-content: center;
+}
+.article-image {
+  max-height: 270px;
+  max-width: 270px;
+  object-fit: cover;
+  box-sizing: border-box;
+}
+.what {
+  margin: auto;
+  max-width: 1200px;
+  display: flex;
+  background-color: aquamarine;
+  border: black dashed 4px;
+}
+.product-price {
+  background-color: cadetblue;
+}
+.details-text {
+  background-color: blueviolet;
+}
+.sub-details {
+  background-color: dodgerblue;
+}
+.product-btn {
+  color: yellow;
+  background-color: green;
+  font-size: 30px;
+}
