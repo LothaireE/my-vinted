@@ -4,6 +4,11 @@ h1 {
   font-size: 100px;
   border: darkblue dashed 3px;
 }
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 70px;
+  margin-bottom: 20px;
+}
 span {
   line-height: 30px;
   font-size: 20px;
@@ -19,16 +24,15 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+/* a:hover {
   color: dimgrey;
   box-shadow: 0 0 10px;
-}
+} */
 /* .my-header {
 } */
 
 .header-top-bar {
   margin: auto;
-  border: solid 3px black;
   max-width: 1200px;
   height: 60px;
   display: flex;
@@ -36,8 +40,7 @@ a:hover {
   align-items: center;
 }
 .header-searchbar {
-  border: 2px solid black;
-  background-color: lightgrey;
+  background-color: rgb(247, 247, 247);
   border-radius: 5px;
   width: 300px;
   padding: 0px 10px;
@@ -45,17 +48,21 @@ a:hover {
 /* .header-btn {
   border: chartreuse dashed 3px;
 } */
-.header-btn button {
+
+.log-in-btn,
+.sign-in-btn {
+  height: 50px;
+  width: 200px;
   border-radius: 5px;
-  border: 2px solid #0affff;
+  border: 2px solid #00b8b8;
   margin: 10px;
   font-size: 20px;
   font-family: "Roboto", sans-serif;
   color: white;
   background-color: white;
-  color: #0affff;
+  color: #00b8b8;
 }
-.header-btn button:hover {
+.header button:hover {
   cursor: pointer;
 }
 .front-image {
@@ -75,7 +82,16 @@ a:hover {
   flex-wrap: wrap;
   box-sizing: border-box;
 }
-
+.article-owner {
+  margin: 5px;
+  display: flex;
+}
+.article-owner-pic {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
 .articles {
   display: flex;
   height: 400px;
@@ -111,6 +127,8 @@ a:hover {
   background-color: green;
   font-size: 30px;
 }
+
+/* log in and sign up */
 .formular-div {
   display: flex;
   align-items: center;
@@ -119,14 +137,39 @@ a:hover {
 }
 
 .formular {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 400px;
   height: 400px;
   display: flex;
   flex-direction: column;
-  border: chartreuse dashed 5px;
+  /* border: chartreuse dashed 5px; */
 }
 .formular-h {
   text-align: center;
   line-height: 40px;
   font-size: 25px;
+}
+.form-inputs {
+  width: 300px;
+  line-height: 50px;
+  margin: 10px;
+}
+
+.form-checkbox {
+  color: red;
+}
+
+.submit-btn,
+.sell-btn {
+  border-radius: 5px;
+  border: 2px solid #00b8b8;
+  margin: 10px;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  background-color: #00b8b8;
+  height: 50px;
+  width: 300px;
 }

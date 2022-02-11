@@ -14,7 +14,17 @@ const Article = ({ article }) => {
             <div key={article._id}>
               <div className="articles">
                 <div className="article">
-                  <p>{article.owner.account.username}</p>
+                  <div className="article-owner">
+                    <img
+                      className="article-owner-pic"
+                      src={article.owner.account.avatar.secure_url}
+                      alt=""
+                    />
+                    <p className="article-owner-name">
+                      {article.owner.account.username}
+                    </p>
+                  </div>
+
                   <img
                     className="article-image"
                     src={article.product_image.secure_url}

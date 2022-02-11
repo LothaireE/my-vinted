@@ -1,27 +1,35 @@
 import "./App.css";
-//1 import packages
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-//2 je vais creer ma page Home
-
-// j'ai commenté Article juste en dessous pour regler un warning
-// import Article from "./components/Article";
-
-//3 import de ma page Home
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Header from "./components/Header";
 import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import Cookies from "js-cookie";
+import { useState } from "react";
 
-// je crée ma premiere route Home
-// maintenaznt la deuxieme : Offer avec sa page correspondante
+//gestion des cookies au sein de ma fonction app
+
 function App() {
+  const [token, setToken] = useState(Cookies.get("userToken") || null);
+
+  const setUser = (token) => {
+    if (token) {
+      Cookies.set("userToken", token, { expire: 10 });
+    } else {
+      Cookies.remove("userToken");
+    }
+    setToken(token);
+  };
+
   return (
     <Router>
-      <Header />
+      <Header setUser={setUser} token={token} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/offer/:id" element={<Offer />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<Signup setUser={setUser} />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
       </Routes>
     </Router>
   );
