@@ -13,16 +13,25 @@ const Login = ({ setUser }) => {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
-      const response = await axios.post("http://localhost:3000/login", {
-        email: email,
-        password: password,
-      });
+      const response = await axios.post(
+        "https://lereacteur-vinted-api.herokuapp.com/user/login",
+        {
+          email: email,
+          password: password,
+        }
+      );
       if (response.data.token) {
+        console.log(response.data.token);
+        console.log(navigate);
         setUser(response.data.token);
+
         navigate("/");
       }
     } catch (error) {
-      if (error.response.status === 400 || error.response.status === 401) {
+      if (
+        error.response &&
+        (error.response.status === 400 || error.response.status === 401)
+      ) {
         setErrorMessage("wrong mail adress and/or password");
       }
     }
@@ -30,21 +39,21 @@ const Login = ({ setUser }) => {
 
   return (
     <div>
-      <h1>Sign Up</h1>
+      <h1>Log In</h1>
       <div className="formular-div">
         <form className="formular" onSubmit={handleSubmit}>
           <h2 className="formular-h">Se connecter</h2>
 
           <input
             className="form-inputs"
-            // value={email}
+            value={email}
             type="email"
             placeholder="Email"
             onChange={(event) => setEmail(event.target.value)}
           />
           <input
             className="form-inputs"
-            // value={password}
+            value={password}
             type="password"
             placeholder="Mot de passe"
             onChange={(event) => setPassword(event.target.value)}

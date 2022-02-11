@@ -1,8 +1,6 @@
 import axios from "axios";
 import { useState } from "react/cjs/react.development";
 import { useNavigate } from "react-router-dom";
-// import Cookies from "js-cookie";
-// import { Link } from "react-router-dom";
 
 const Signup = ({ setUser }) => {
   const [username, setUsername] = useState("");
@@ -10,9 +8,6 @@ const Signup = ({ setUser }) => {
   const [password, setPassword] = useState("");
   const [newsLetter, setNewsLetter] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
-  // const [data, setData] = useState();
-  // const [isLoading, setIsLoading] = useState(true);
 
   const navigate = useNavigate();
 
@@ -31,11 +26,12 @@ const Signup = ({ setUser }) => {
         }
       );
       if (response.data.token) {
-        setUsername(response.data.token);
+        console.log("la");
+        setUser(response.data.token);
         navigate("/");
       }
     } catch (error) {
-      if (error.response.status === 409) {
+      if (error.response && error.response.status === 409) {
         setErrorMessage("Cet email est deja utilisé");
       }
     }

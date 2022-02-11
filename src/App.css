@@ -45,11 +45,9 @@ a {
   width: 300px;
   padding: 0px 10px;
 }
-/* .header-btn {
-  border: chartreuse dashed 3px;
-} */
 
 .log-in-btn,
+.log-out-btn,
 .sign-in-btn {
   height: 50px;
   width: 200px;
@@ -71,41 +69,78 @@ a {
   object-fit: none;
 }
 .front-articles {
-  background-color: tomato;
   margin: auto;
   max-width: 1200px;
   display: flex;
   flex-direction: row;
 }
 .article-parent {
+  justify-content: center;
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
 }
 .article-owner {
+  border: royalblue 3px solid;
+  display: flex;
+  box-sizing: border-box;
   margin: 5px;
   display: flex;
+  align-items: center;
 }
+
+.article-owner-name {
+  flex-wrap: wrap;
+}
+
 .article-owner-pic {
   height: 50px;
   width: 50px;
   object-fit: cover;
   border-radius: 50%;
+  margin-right: 10px;
 }
 .articles {
+  margin: 10px;
   display: flex;
-  height: 400px;
-  width: 350px;
-  object-fit: cover;
+  flex-direction: column;
+
+  width: 250px;
+  height: 450px;
+  object-fit: none;
   border: chartreuse solid 3px;
+}
+.article-image-box {
+  border: tomato 5px solid;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  height: 300px;
+  width: 250px;
+  display: flex;
   justify-content: center;
 }
 .article-image {
-  max-height: 270px;
-  max-width: 270px;
-  object-fit: cover;
-  box-sizing: border-box;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
 }
+
+.buy-btn {
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  margin: auto;
+
+  line-height: 40px;
+  background-color: #00b8b8;
+  border-radius: 5px;
+  /* border: 2px solid #00b8b8; */
+  text-align: center;
+  width: 200px;
+}
+.buy-btn-text {
+  color: white;
+}
+
 .what {
   margin: auto;
   max-width: 1200px;

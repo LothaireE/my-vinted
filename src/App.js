@@ -14,8 +14,10 @@ function App() {
   const [token, setToken] = useState(Cookies.get("userToken") || null);
 
   const setUser = (token) => {
+    console.log("TESTTT");
+
     if (token) {
-      Cookies.set("userToken", token, { expire: 10 });
+      Cookies.set("userToken", token, { expires: 10 });
     } else {
       Cookies.remove("userToken");
     }

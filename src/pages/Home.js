@@ -27,7 +27,6 @@ const Home = () => {
     </div>
   ) : (
     <div className="homepage-header">
-      {/* <Header /> */}
       <img className="front-image" src={frontImage} alt="frontImage" />
       <h1>Home</h1>
 

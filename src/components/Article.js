@@ -24,16 +24,18 @@ const Article = ({ article }) => {
                       {article.owner.account.username}
                     </p>
                   </div>
-
-                  <img
-                    className="article-image"
-                    src={article.product_image.secure_url}
-                    alt=""
-                  />
-                  <p className="article-key">{article._id}</p>
-                  <Link to={`/offer/${article._id}`}>
-                    <p>Comprar</p>
-                  </Link>
+                  <div className="article-image-box">
+                    <img
+                      className="article-image"
+                      src={article.product_image.secure_url}
+                      alt=""
+                    />
+                  </div>
+                  <div className="buy-btn">
+                    <Link className="buy-btn-text" to={`/offer/${article._id}`}>
+                      Buy
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
