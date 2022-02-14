@@ -11,8 +11,12 @@ const Header = ({ token, setUser }) => {
             <img src={logo} alt="" />
           </div>
         </Link>
-        <div className="header-searchbar">
-          <p>soon to be searchbar</p>
+        <div>
+          <input
+            className="header-searchbar"
+            type="text"
+            placeholder="Recherche des articles"
+          />
         </div>
         {token ? (
           <button
@@ -34,8 +38,23 @@ const Header = ({ token, setUser }) => {
             </Link>
           </>
         )}
-
-        <button className="sell-btn">Vends tes articles</button>
+        {/* <Link to= {token ? ({"/publish"}):({"/login"})} >
+            <button className="sell-btn">Vends tes articles</button>
+            </Link> */}
+        <div>
+          {token ? (
+            <Link to={"/publish"}>
+              <button className="sell-btn">Vends tes articles</button>
+            </Link>
+          ) : (
+            <Link to={"/login"}>
+              <button className="sell-btn">Vends tes articles</button>
+            </Link>
+          )}
+        </div>
+        {/* <Link to={"/publish"}>
+          <button className="sell-btn">Vends tes articles</button>
+        </Link> */}
       </div>
     </div>
   );

@@ -6,21 +6,26 @@ import frontImage from "../pictures/frontImage.jpeg";
 import Article from "../components/Article";
 
 const Home = () => {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
   const [isLoading, SetIsLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  // const [articlePerPage, setArticlePerPage] = useEffect(10);
+
+  const limit = 12;
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        "https://lereacteur-vinted-api.herokuapp.com/offers"
+        `https://lereacteur-vinted-api.herokuapp.com/offers?limit=${limit}&page=${page}`
       );
 
       setData(response.data);
-      //   console.log("base ", response.data.offers);
+      // console.log("base ", response.data.offers);
       SetIsLoading(false);
     };
     fetchData();
-  }, []);
+  }, [page]);
+
   return isLoading ? (
     <div>
       <h1>Loading...</h1>
@@ -28,10 +33,21 @@ const Home = () => {
   ) : (
     <div className="homepage-header">
       <img className="front-image" src={frontImage} alt="frontImage" />
-      <h1>Home</h1>
 
-      <div className="front-articles">
-        <Article article={data.offers} />
+      <div className="container">
+        <h1>Articles populaires</h1>
+        <div>
+          <button className="page-btn" onClick={() => setPage(page - 1)}>
+            Page précédente
+          </button>
+          <button className="page-btn" onClick={() => setPage(page + 1)}>
+            Page suivante
+          </button>
+        </div>
+        <div className="front-articles">
+          <Article article={data.offers} />
+          {/* <Article article={currentArticle} /> */}
+        </div>
       </div>
     </div>
   );

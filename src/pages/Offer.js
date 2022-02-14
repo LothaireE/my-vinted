@@ -26,37 +26,63 @@ const Offer = () => {
     </div>
   ) : (
     <div>
-      <div>
+      <div className="offer-background">
         {/* <Header /> */}
-        <h1>Offer</h1>
-        <Link to={"/"}>Go to Homepage</Link>
+        <Link to={"/"}>
+          {" "}
+          <h3>Go to Homepage</h3>{" "}
+        </Link>
         <div>
-          <div className="what">
-            <div className="product-picture">
-              <img src={data.product_image.secure_url} alt="" />
+          {/* <div className="offer-block-left"> */}
+          <div className="product-blocks">
+            {/* <div className="product-block"> */}
+            <div className="offer-block-left">
+              <img
+                className="product-picture"
+                src={data.product_image.secure_url}
+                alt=""
+              />
             </div>
-            <div className="product-info">
-              <div className="product-price">
-                <p>{data.product_price} €</p>
-              </div>
-              <div className="product-details">
-                {data.product_details.map((details, index2) => {
-                  const keys = Object.keys(details);
-                  return (
-                    <div className="correction">
-                      <span>
-                        {keys[0]} : {details[keys[0]]}
-                      </span>
+
+            <div className="offer-block-right">
+              <div className="product-info">
+                <div className="product-info-1">
+                  <div className="product-price">
+                    <h3>{data.product_price} €</h3>
+                  </div>
+                  <div className="product-details">
+                    {data.product_details.map((details, index2) => {
+                      const keys = Object.keys(details);
+                      return (
+                        <div className="correction">
+                          <span>
+                            {keys[0]} : {details[keys[0]]}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className="product-info-2">
+                  <div className="sub-details">
+                    <h3>{data.product_name}</h3>
+                    <p>{data.product_description}</p>
+                    <div className="article-owner">
+                      <img
+                        className="article-owner-pic"
+                        src={data.owner.account.avatar.secure_url}
+                        alt=""
+                      />
+                      <p className="article-owner-name">
+                        {data.owner.account.username}
+                      </p>
                     </div>
-                  );
-                })}
-              </div>
-              <div className="sub-details">
-                <p>{data.product_name}</p>
-                <p>{data.product_description}</p>
-              </div>
-              <div>
-                <button className="product-btn">Potato</button>
+                  </div>
+
+                  <div>
+                    <button className="product-btn">Acheter</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

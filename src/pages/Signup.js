@@ -35,12 +35,6 @@ const Signup = ({ setUser }) => {
         setErrorMessage("Cet email est deja utilisé");
       }
     }
-
-    // setData(response.data);
-
-    // console.log(response.data.token);
-    // const token = response.data.token;
-    // Cookies.set("token", token);
   };
 
   return (
@@ -70,11 +64,14 @@ const Signup = ({ setUser }) => {
             placeholder="Mot de passe"
             onChange={(event) => setPassword(event.target.value)}
           />
-          <input
-            className="form-checkbox"
-            type="checkbox"
-            onChange={(event) => setNewsLetter(event.target.checked)}
-          />
+          <span>
+            <input
+              className="form-checkbox"
+              type="checkbox"
+              onChange={(event) => setNewsLetter(event.target.checked)}
+            />
+          </span>
+
           <input
             className="submit-btn"
             value={"S'inscrire"}

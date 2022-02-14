@@ -1,15 +1,10 @@
 import { Link } from "react-router-dom";
-
+import defaultPic from "../pictures/defaultPic.png";
 const Article = ({ article }) => {
-  //   console.log("mais t'aurais pas capté les props ?", article);
   return (
     <div>
-      <h1>article à venir</h1>
       <div className="article-parent">
         {article.map((article, index) => {
-          //   console.log("1", article.product_image.secure_url);
-          //   console.log("2", article.owner.account.username);
-          console.log(article._id);
           return (
             <div key={article._id}>
               <div className="articles">
@@ -17,7 +12,11 @@ const Article = ({ article }) => {
                   <div className="article-owner">
                     <img
                       className="article-owner-pic"
-                      src={article.owner.account.avatar.secure_url}
+                      src={
+                        article.owner.account.avatar
+                          ? article.owner.account.avatar.secure_url
+                          : defaultPic
+                      }
                       alt=""
                     />
                     <p className="article-owner-name">

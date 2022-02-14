@@ -1,13 +1,22 @@
 /* Other rules */
+* {
+  font-family: "Roboto", sans-serif;
+}
 h1 {
   font-family: "Roboto", sans-serif;
-  font-size: 100px;
-  border: darkblue dashed 3px;
+  font-size: 50px;
+  /* border: darkblue dashed 3px; */
+  margin: 0px 20px;
 }
 h2 {
   font-family: "Roboto", sans-serif;
   font-size: 70px;
   margin-bottom: 20px;
+}
+h3 {
+  font-size: 30px;
+  margin-bottom: 25px;
+  font-family: "Roboto", sans-serif;
 }
 span {
   line-height: 30px;
@@ -20,10 +29,17 @@ p {
   font-family: "Roboto", sans-serif;
 }
 a {
-  color: black;
+  /* color: black; */
   text-decoration: none;
 }
-
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+.offer-background {
+  margin: auto;
+  background-color: #f4f4f4cb;
+}
 /* a:hover {
   color: dimgrey;
   box-shadow: 0 0 10px;
@@ -42,10 +58,14 @@ a {
 .header-searchbar {
   background-color: rgb(247, 247, 247);
   border-radius: 5px;
-  width: 300px;
+  max-width: 300px;
   padding: 0px 10px;
+  border: none;
+  outline: none;
+  line-height: 40px;
+  font-size: 20px;
 }
-
+.page-btn,
 .log-in-btn,
 .log-out-btn,
 .sign-in-btn {
@@ -69,8 +89,9 @@ a {
   object-fit: none;
 }
 .front-articles {
-  margin: auto;
-  max-width: 1200px;
+  /* margin: auto; */
+  /* max-width: 1200px; */
+  /* background-color: tomato; */
   display: flex;
   flex-direction: row;
 }
@@ -81,16 +102,18 @@ a {
   box-sizing: border-box;
 }
 .article-owner {
-  border: royalblue 3px solid;
   display: flex;
   box-sizing: border-box;
   margin: 5px;
   display: flex;
   align-items: center;
+  /* border: #00b8b8 4px dashed; */
 }
 
 .article-owner-name {
   flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
 }
 
 .article-owner-pic {
@@ -104,14 +127,18 @@ a {
   margin: 10px;
   display: flex;
   flex-direction: column;
-
   width: 250px;
   height: 450px;
   object-fit: none;
-  border: chartreuse solid 3px;
+  border-radius: 5px;
+  /* border: chartreuse solid 3px; */
+}
+.articles:hover {
+  color: dimgrey;
+  box-shadow: 0 0 5px;
 }
 .article-image-box {
-  border: tomato 5px solid;
+  /* border: tomato 5px solid; */
   margin-bottom: 20px;
   box-sizing: border-box;
   height: 300px;
@@ -141,26 +168,80 @@ a {
   color: white;
 }
 
-.what {
+/* block Offer */
+
+.product-blocks {
   margin: auto;
   max-width: 1200px;
+  height: 1000px;
   display: flex;
-  background-color: aquamarine;
-  border: black dashed 4px;
+  /* border: black dashed 4px; */
 }
+.offer-block-left {
+  width: 50%;
+  /* border: royalblue 5px dashed; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.offer-block-right {
+  /* border: deeppink dashed 5px; */
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-picture {
+  object-fit: cover;
+  max-width: 90%;
+  max-height: 90%;
+}
+.product-info {
+  /* border: chartreuse dashed 6px; */
+  background-color: white;
+  max-width: 80%;
+  height: 700px;
+  padding: 15px;
+}
+
+.product-info-1,
+.product-info-2 {
+  height: 50%;
+}
+
+/* margin: 15px 0px; */
+
 .product-price {
-  background-color: cadetblue;
+  height: 40px;
+  /* background-color: cadetblue; */
 }
-.details-text {
+.correction {
+  color: rgb(150, 150, 150);
+  margin: 10px 0px;
+}
+/* .details-text {
   background-color: blueviolet;
-}
+} */
 .sub-details {
-  background-color: dodgerblue;
+  /* background-color: dodgerblue; */
+  height: 80%;
 }
+
+.sub-details p {
+  color: grey;
+  margin-bottom: 15px;
+}
+
 .product-btn {
-  color: yellow;
-  background-color: green;
+  text-align: center;
+  width: 100%;
+  border-radius: 5px;
+  color: white;
+  background-color: #00b8b8;
   font-size: 30px;
+  line-height: 50px;
+  border: none;
 }
 
 /* log in and sign up */
@@ -190,10 +271,17 @@ a {
   width: 300px;
   line-height: 50px;
   margin: 10px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgb(231, 231, 231);
 }
 
 .form-checkbox {
   color: red;
+}
+.newsletter {
+  display: flex;
+  flex-direction: row;
 }
 
 .submit-btn,
