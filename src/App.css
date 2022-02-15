@@ -90,16 +90,27 @@ input {
   margin: 10px;
   font-size: 20px;
   font-family: "Roboto", sans-serif;
-  color: white;
-  background-color: white;
   color: #00b8b8;
+  background-color: white;
 }
-.log-in-btn,
+.page-btn {
+  width: 170px;
+}
 .log-out-btn,
+.log-in-btn,
 .sign-in-btn {
   height: 50px;
   width: 200px;
 }
+
+/* .log-in-btn,
+.sign-in-btn {
+  background-color: white;
+} */
+/* .log-out-btn {
+  background-color: red;
+} */
+
 .page-num,
 .page-btn {
   min-width: 50px;
