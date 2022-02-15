@@ -12,6 +12,10 @@ const Home = () => {
   // const [articlePerPage, setArticlePerPage] = useEffect(10);
 
   const limit = 12;
+  let allPages = data.count / limit;
+  let pageMax = Math.ceil(allPages);
+  console.log("Ceil ===>", Math.ceil(allPages));
+  console.log("pageMax ===>", pageMax);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,7 +29,7 @@ const Home = () => {
     };
     fetchData();
   }, [page]);
-
+  console.log("page ===>", setPage);
   return isLoading ? (
     <div>
       <h1>Loading...</h1>
@@ -36,17 +40,31 @@ const Home = () => {
 
       <div className="container">
         <h1>Articles populaires</h1>
-        <div>
-          <button className="page-btn" onClick={() => setPage(page - 1)}>
-            Page précédente
-          </button>
-          <button className="page-btn" onClick={() => setPage(page + 1)}>
+        <div className="pagination">
+          {page <= 1 ? (
+            <button className="page-btn">Page précédente</button>
+          ) : (
+            <button className="page-btn" onClick={() => setPage(page - 1)}>
+              Page précédente
+            </button>
+          )}
+          <div>
+            <div className="page-num">{page}</div>
+          </div>
+          {page === pageMax ? (
+            <button className="page-btn">Page suivante</button>
+          ) : (
+            <button className="page-btn" onClick={() => setPage(page + 1)}>
+              Page suivante
+            </button>
+          )}
+
+          {/* <button className="page-btn" onClick={() => setPage(page + 1)}>
             Page suivante
-          </button>
+          </button> */}
         </div>
         <div className="front-articles">
           <Article article={data.offers} />
-          {/* <Article article={currentArticle} /> */}
         </div>
       </div>
     </div>

@@ -1,97 +1,160 @@
 import { useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const Publish = () => {
-  console.log("=======S", setUser);
-  const { setUser } = useParams();
-  const [picture, setPicture] = useState();
+const Publish = ({ token }) => {
+  console.log("=======S", token);
+
   const [title, setTitle] = useState("");
-  //   ajouter const product_detail = array
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState();
+  const [condition, setCondition] = useState("");
+  const [city, setCity] = useState("");
+  const [brand, setBrand] = useState("");
+  const [size, setSize] = useState("");
+  const [color, setColor] = useState("");
+  const [picture, setPicture] = useState();
 
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
       setIsLoading(true);
 
-      //a wild FormData appear : permet de creer
-      //des paires "clef" : "value"* d'ou les futurs
-      //req.fields/req.files I guess ?
-
       const data = new FormData();
-      //* les dites paires "clef" : "value"
-      //   data.append("owner.account.username", username);
 
-      data.append("product_image", picture);
-      data.append("product_name", title);
-      data.append("product_description", description);
-      data.append("product_price", price);
+      data.append("title", title);
+      data.append("description", description);
+      data.append("price", price);
+      data.append("condition", condition);
+      data.append("city", city);
+      data.append("brand", brand);
+      data.append("size", size);
+      data.append("color", color);
+      data.append("picture", picture);
 
       const response = await axios.post(
-        `https://lereacteur-vinted-api.herokuapp.com/offer/publish${
-          (data,
-          params,
-          {
-            headers: {
-              authorization: `Bearer ${setUser}`,
-            },
-          })
+        "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
+        data,
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
         }
-        `
       );
       setData(response.data);
       setIsLoading(false);
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     }
   };
 
   return (
-    <div>
-      <h1>Publish</h1>
-      <div className="formular-div">
-        <form className="formular" onSubmit={handleSubmit}>
-          <div>
+    <div className="publish-main">
+      <div className="publish-div">
+        <form className="publish-formular" onSubmit={handleSubmit}>
+          <h3>Vends ton article</h3>
+          <div className="publish-block-1">
             <input
-              className="form-inputs"
+              className="form-inputs-pic"
               type="file"
               onChange={(event) => setPicture(event.target.files[0])}
             />
           </div>
 
-          <div>
-            <input
-              className="form-inputs"
-              type="text"
-              placeholder="ex: chemise en coton rose"
-              onChange={(event) => setTitle(event.target.value)}
-            />
-            <input
-              className="form-inputs"
-              type="text"
-              placeholder="ex: taille grand, peu porté"
-              onChange={(event) => setDescription(event.target.value)}
-            />
+          <div className="publish-block-2">
+            <div className="publish-lines">
+              <p>Titre</p>
+              <input
+                className="form-inputs"
+                type="text"
+                placeholder="ex: chemise en coton rose"
+                onChange={(event) => setTitle(event.target.value)}
+              />
+            </div>
+
+            <div className="publish-lines">
+              <p>Décris ton article</p>
+              <input
+                className="form-inputs"
+                type="text-area"
+                placeholder="ex: taille grand, peu porté"
+                onChange={(event) => setDescription(event.target.value)}
+              />
+            </div>
           </div>
-          {/* data.product_details est un tableau, voir comment on s'y prend : Object. ??*/}
-          {/* <div>
-              <input type="text" placeholder=""/>
-          </div> */}
-          <div>
-            <input
-              className="form-inputs"
-              type="num"
-              placeholder="0.00 €"
-              onChange={(event) => setPrice(event.target.value)}
-            />
-            <input className="form-checkbox" type="checkbox" />
+
+          <div className="publish-block-3">
+            <div className="publish-lines">
+              <p>Marque</p>
+              <input
+                className="form-inputs"
+                type="text"
+                placeholder="ex: Desigual"
+                onChange={(event) => setBrand(event.target.value)}
+              />
+            </div>
+
+            <div className="publish-lines">
+              <p>Taille</p>
+              <input
+                className="form-inputs"
+                type="text"
+                placeholder="ex: XXXL/55/2"
+                onChange={(event) => setSize(event.target.value)}
+              />
+            </div>
+
+            <div className="publish-lines">
+              <p>Couleur</p>
+              <input
+                className="form-inputs"
+                type="text"
+                placeholder="ex: Taupe"
+                onChange={(event) => setColor(event.target.value)}
+              />
+            </div>
+
+            <div className="publish-lines">
+              <p>Etat</p>
+              <input
+                className="form-inputs"
+                type="text"
+                placeholder="ex: bon état, peu de marque d'usure"
+                onChange={(event) => setCondition(event.target.value)}
+              />
+            </div>
+
+            <div className="publish-lines">
+              <p>Lieu</p>
+              <input
+                className="form-inputs"
+                type="text"
+                placeholder="ex: Villeneuve-la-Garenne"
+                onChange={(event) => setCity(event.target.value)}
+              />
+            </div>
           </div>
-          <div>
+
+          <div className="publish-block-4">
+            <div className="publish-lines">
+              <p>Prix</p>
+              <input
+                className="form-inputs"
+                type="num"
+                placeholder="0.00 €"
+                onChange={(event) => setPrice(event.target.value)}
+              />
+            </div>
+
+            {/* <input className="form-checkbox" type="checkbox" /> */}
+          </div>
+          <div className="submit-block">
             <input className="submit-btn" type="submit" value={"ajouter"} />
           </div>
         </form>

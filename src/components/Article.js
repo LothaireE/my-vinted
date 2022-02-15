@@ -30,11 +30,14 @@ const Article = ({ article }) => {
                       alt=""
                     />
                   </div>
-                  <div className="buy-btn">
-                    <Link className="buy-btn-text" to={`/offer/${article._id}`}>
-                      Buy
-                    </Link>
+                  <div>
+                    <p className="article-name">{article.product_name}</p>
+                    <p className="article-price">{article.product_price} €</p>
                   </div>
+
+                  <Link className="buy-btn-text" to={`/offer/${article._id}`}>
+                    <div className="buy-btn">Buy</div>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import defaultPic from "../pictures/defaultPic.png";
 
 const Offer = () => {
   const { id } = useParams();
@@ -13,9 +14,7 @@ const Offer = () => {
       const response = await axios.get(
         `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
       );
-
       setData(response.data);
-      //   console.log("=====> ", response.data);
       SetIsLoading(false);
     };
     fetchData();
@@ -27,15 +26,8 @@ const Offer = () => {
   ) : (
     <div>
       <div className="offer-background">
-        {/* <Header /> */}
-        <Link to={"/"}>
-          {" "}
-          <h3>Go to Homepage</h3>{" "}
-        </Link>
         <div>
-          {/* <div className="offer-block-left"> */}
           <div className="product-blocks">
-            {/* <div className="product-block"> */}
             <div className="offer-block-left">
               <img
                 className="product-picture"
@@ -67,12 +59,17 @@ const Offer = () => {
                   <div className="sub-details">
                     <h3>{data.product_name}</h3>
                     <p>{data.product_description}</p>
-                    <div className="article-owner">
+                    <div className="article-owner-block">
                       <img
                         className="article-owner-pic"
-                        src={data.owner.account.avatar.secure_url}
+                        src={
+                          data.owner.account.avatar
+                            ? data.owner.account.avatar.secure_url
+                            : defaultPic
+                        }
                         alt=""
                       />
+
                       <p className="article-owner-name">
                         {data.owner.account.username}
                       </p>

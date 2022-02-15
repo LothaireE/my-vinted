@@ -38,9 +38,7 @@ const Header = ({ token, setUser }) => {
             </Link>
           </>
         )}
-        {/* <Link to= {token ? ({"/publish"}):({"/login"})} >
-            <button className="sell-btn">Vends tes articles</button>
-            </Link> */}
+
         <div>
           {token ? (
             <Link to={"/publish"}>
@@ -52,9 +50,6 @@ const Header = ({ token, setUser }) => {
             </Link>
           )}
         </div>
-        {/* <Link to={"/publish"}>
-          <button className="sell-btn">Vends tes articles</button>
-        </Link> */}
       </div>
     </div>
   );
