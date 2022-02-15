@@ -25,7 +25,7 @@ const Offer = () => {
     </div>
   ) : (
     <div>
-      <div className="offer-background">
+      <div className="background-offer">
         <div>
           <div className="product-blocks">
             <div className="offer-block-left">
@@ -79,10 +79,10 @@ const Offer = () => {
                   <div>
                     <Link
                       to="/payment"
-                      state={
-                        ({ title: data.product_name },
-                        { price: data.product_price })
-                      }
+                      state={{
+                        title: data.product_name,
+                        price: data.product_price,
+                      }}
                     >
                       <button className="product-btn">Acheter</button>
                     </Link>

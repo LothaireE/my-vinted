@@ -24,6 +24,7 @@ function App() {
     }
     setToken(token);
   };
+  console.log("setUser à-t-il un Id?", setUser);
 
   return (
     <Router>

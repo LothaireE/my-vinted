@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react/cjs/react.development";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const Signup = ({ setUser }) => {
   const [username, setUsername] = useState("");
@@ -26,8 +27,8 @@ const Signup = ({ setUser }) => {
         }
       );
       if (response.data.token) {
-        console.log("la");
         setUser(response.data.token);
+        Cookies.set("userId", response.data._id, { expires: 10 });
         navigate("/");
       }
     } catch (error) {

@@ -14,8 +14,6 @@ const Home = () => {
   const limit = 12;
   let allPages = data.count / limit;
   let pageMax = Math.ceil(allPages);
-  console.log("Ceil ===>", Math.ceil(allPages));
-  console.log("pageMax ===>", pageMax);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,12 +22,10 @@ const Home = () => {
       );
 
       setData(response.data);
-      // console.log("base ", response.data.offers);
       SetIsLoading(false);
     };
     fetchData();
   }, [page]);
-  console.log("page ===>", setPage);
   return isLoading ? (
     <div>
       <h1>Loading...</h1>

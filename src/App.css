@@ -1,4 +1,6 @@
 /* Other rules */
+
+/* ********************** COMMON RULES   *************************  */
 * {
   font-family: "Roboto", sans-serif;
 }
@@ -17,6 +19,11 @@ h3 {
   margin-top: 25px;
   margin-bottom: 25px;
   font-family: "Roboto", sans-serif;
+}
+h4 {
+  color: rgb(150, 150, 150);
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 20px;
 }
 span {
   line-height: 30px;
@@ -40,13 +47,17 @@ input {
   max-width: 1200px;
   margin: auto;
 }
-.offer-background {
-  margin: auto;
-  background-color: #f4f4f4cb;
+.background-payment,
+.background-offer {
+  margin: 0 auto;
+  background-color: #f3f1f1b9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-top-bar {
-  margin: auto;
+  margin: 0 auto;
   max-width: 1200px;
   height: 60px;
   display: flex;
@@ -66,16 +77,15 @@ input {
 .footer-block {
   border-top: 1px solid rgb(231, 231, 231);
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 30px;
-  height: 100px;
+  /* height: 100px; */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .footer-text {
-  margin: auto;
   max-width: 1200px;
   font-size: 18px;
 }
@@ -350,6 +360,7 @@ input {
   background-color: rgb(231, 231, 231);
   margin: auto;
 }
+
 .publish-div {
   box-sizing: border-box;
   max-width: 1200px;
@@ -384,16 +395,10 @@ input {
   background-color: white;
   margin-bottom: 15px;
 }
-/* .publish-block-3 {
-  background-color: cornflowerblue;
-}
-.publish-block-4 {
-  background-color: rgb(163, 163, 0);
-} */
+
 .submit-block {
   display: flex;
   justify-content: flex-end;
-  /* background-color: aqua; */
 }
 
 .publish-lines {
@@ -406,4 +411,69 @@ input {
 .publish-lines p {
   flex: 1;
   margin: 20px;
+}
+/* ********************** PAYMENT PAGE  *************************  */
+
+.background-payment {
+  border-top: 1px white solid;
+}
+
+.element-block {
+  margin-top: 50px;
+  margin-bottom: 200px;
+  width: 600px;
+  /* border: 4px tomato solid; */
+  /* max-width: 400px; */
+}
+.fees-block {
+  color: rgb(122, 122, 122);
+  padding: 20px;
+  background-color: white;
+  margin-bottom: 2px;
+  padding-bottom: 40px;
+}
+.fee-details {
+  display: flex;
+  justify-content: space-between;
+}
+.total-block {
+  background-color: white;
+  padding: 15px;
+}
+.total-block span {
+  font-weight: 700;
+}
+.total-price {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-text {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgb(231, 231, 231);
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.credit-card {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  font-size: 18px;
+  border: 1px solid rgb(231, 231, 231);
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.checkout-inp {
+  width: 100%;
+  border-radius: 5px;
+  color: white;
+  background-color: #01bb6a;
+  border: none;
+  padding: 10px;
 }
