@@ -46,7 +46,7 @@ const Offer = () => {
                     {data.product_details.map((details, index2) => {
                       const keys = Object.keys(details);
                       return (
-                        <div className="correction">
+                        <div key={index2} className="correction">
                           <span>
                             {keys[0]} : {details[keys[0]]}
                           </span>
@@ -77,6 +77,7 @@ const Offer = () => {
                   </div>
 
                   <div>
+                    {/* <Link to=  */}
                     <button className="product-btn">Acheter</button>
                   </div>
                 </div>

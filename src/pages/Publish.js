@@ -1,10 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Publish = ({ token }) => {
-  console.log("=======S", token);
-
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState();
@@ -48,13 +46,13 @@ const Publish = ({ token }) => {
       );
       setData(response.data);
       setIsLoading(false);
-      navigate("/");
+      navigate(`/offer/${response.data._id}`);
     } catch (error) {
       console.log(error.message);
     }
   };
 
-  return (
+  return token ? (
     <div className="publish-main">
       <div className="publish-div">
         <form className="publish-formular" onSubmit={handleSubmit}>
@@ -80,9 +78,9 @@ const Publish = ({ token }) => {
 
             <div className="publish-lines">
               <p>Décris ton article</p>
-              <input
-                className="form-inputs"
-                type="text-area"
+              <textarea
+                className="form-area"
+                type="text"
                 placeholder="ex: taille grand, peu porté"
                 onChange={(event) => setDescription(event.target.value)}
               />
@@ -160,6 +158,8 @@ const Publish = ({ token }) => {
         </form>
       </div>
     </div>
+  ) : (
+    <Navigate to="/login" />
   );
 };
 export default Publish;

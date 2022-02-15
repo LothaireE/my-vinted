@@ -8,6 +8,7 @@ import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Publish from "./pages/Publish";
+import Payment from "./pages/Payment";
 import { useState } from "react";
 
 //gestion des cookies au sein de ma fonction app
@@ -35,6 +36,10 @@ function App() {
         <Route
           path="/publish"
           element={<Publish setUser={setUser} token={token} />}
+        />
+        <Route
+          path="/payment"
+          element={<Payment setUser={setUser} token={token} />}
         />
       </Routes>
       <Footer />
